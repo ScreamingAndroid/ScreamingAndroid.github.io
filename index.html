@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            color: #a8d08d;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(180deg, #2d2d1f 0%, #1a1a14 100%);
+            border-bottom: 3px solid #4a5a3a;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #c8e6c9;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            color: #8b7355;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        nav {
+            background: #3d3d2e;
+            border-bottom: 2px solid #5a6a4a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .nav-item {
+            position: relative;
+            flex: 1;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 15px 20px;
+            color: #a8d08d;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            border-right: 1px solid #5a6a4a;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-item:last-child .nav-link {
+            border-right: none;
+        }
+
+        .nav-link:hover {
+            background: #4a5a3a;
+            color: #c8e6c9;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 300px;
+            background: #2d2d1f;
+            border: 2px solid #5a6a4a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            z-index: 200;
+        }
+
+        .nav-item:hover .submenu {
+            display: block;
+        }
+
+        .submenu-item {
+            padding: 15px;
+            border-bottom: 1px solid #3d3d2e;
+            transition: background 0.2s ease;
+        }
+
+        .submenu-item:hover {
+            background: #3d3d2e;
+        }
+
+        .submenu-item:last-child {
+            border-bottom: none;
+        }
+
+        .submenu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #5a6a4a;
+        }
+
+        .submenu-item h3 {
+            color: #c8e6c9;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .submenu-item p {
+            color: #8b7355;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .submenu-item a {
+            color: #a8d08d;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: inline-block;
+            padding: 5px 10px;
+            border: 1px solid #5a6a4a;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .submenu-item a:hover {
+            background: #4a5a3a;
+            color: #c8e6c9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2d2d1f 0%, #1a1a14 100%);
+            padding: 60px 40px;
+            border: 3px solid #5a6a4a;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            color: #c8e6c9;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero p {
+            color: #8b7355;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        .content-section {
+            background: #2d2d1f;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 2px solid #5a6a4a;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section h2 {
+            color: #c8e6c9;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #5a6a4a;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            color: #a8d08d;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #1a1a14;
+            color: #8b7355;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+            border-top: 3px solid #5a6a3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>YOUR NAME</h1>
+            <p class="tagline">Tactical • Strategic • Mission-Focused</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Projects</a>
+                <div class="submenu">
+                    <div class="submenu-item">
+                        <img src="https://via.placeholder.com/300x150/3d3d2e/a8d08d?text=Project+1" alt="Project 1">
+                        <h3>Project Alpha</h3>
+                        <p>Description of your first project goes here.</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                    <div class="submenu-item">
+                        <img src="https://via.placeholder.com/300x150/3d3d2e/a8d08d?text=Project+2" alt="Project 2">
+                        <h3>Project Bravo</h3>
+                        <p>Description of your second project goes here.</p>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Gallery</a>
+                <div class="submenu">
+                    <div class="submenu-item">
+                        <img src="https://via.placeholder.com/300x150/2d2d1f/c8e6c9?text=Image+1" alt="Gallery 1">
+                        <h3>Category One</h3>
+                        <p>Image collection description.</p>
+                        <a href="#">View Album →</a>
+                    </div>
+                    <div class="submenu-item">
+                        <img src="https://via.placeholder.com/300x150/2d2d1f/c8e6c9?text=Image+2" alt="Gallery 2">
+                        <h3>Category Two</h3>
+                        <p>Another image collection.</p>
+                        <a href="#">View Album →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>MISSION STATEMENT</h2>
+            <p>Replace this with your personal mission statement or introduction. This is your chance to make a strong first impression with visitors to your site.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>About Me</h2>
+            <p>Write your bio here. Talk about your background, skills, interests, and what drives you. This section helps visitors understand who you are and what you're all about.</p>
+            <p>You can add multiple paragraphs to fully tell your story.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Skills & Expertise</h2>
+            <p>List your skills, areas of expertise, or specializations here. Be specific about what you bring to the table and what makes you unique.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved. | Design: Tactical Operations</p>
+    </footer>
+</body>
+</html>
